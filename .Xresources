@@ -1,0 +1,65 @@
+Xft.autohint: 1
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+!-XTerm specific defaults
+*.faceName: 	Monospace Regular 
+*.faceSize: 	12
+*.renderFont: 	true
+*.allowBoldFonts:	false
+*.selectToClipboard:	true
+*.vt100.translations: #override \n\
+  Ctrl <Key> minus: smaller-vt-font() \n\
+  Ctrl <Key> plus: larger-vt-font() 
+  Ctrl Shift <Key>V:	insert-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
+*.vt100.scrollBar: true
+*.vt100.scrollbar.width: 8
+*.vt100.rightScrollBar:	true
+*.saveLines:	20000
+
+!-RXVT specific defaults
+*.font:	xft:monospace:regular:size=12
+*.letterSpace:	-1
+*.perl-ext-common:	clipboard,resize-font
+*.clipboard.autocopy: true
+*.keysym.M-c: perl:clipboard:copy
+*.keysym.M-v: perl:clipboard:paste
+
+
+
+! Tango color scheme
+! ------------------
+*foreground:       #eeeeec
+*background:       #171421
+*cursorColor:      #8ae234
+*colorUL:          #8ae234
+*underlineColor:   #92659a
+! - Aluminium -
+*color0:           #2e3436
+*color8:           #888A85
+! - Scariet Red -
+*color1:           #cc0000
+*color9:           #ef2929
+! - Chameleon -
+*color2:           #4e9a06
+*color10:          #8ae234
+! - Butter -
+*color3:           #edd400
+*color11:          #fce94f
+! - Sky Blue -
+*color4:           #3465a4
+*color12:          #729fcf
+! - Plum -
+*color5:           #92659a
+*color13:          #c19fbe
+! - Cyan -
+*color6:           #07c7ca
+*color14:          #63e9e9
+! - Aluminium 2 -
+*color7:           #d3d7cf
+*color15:          #eeeeec
+*geometry:		110x30

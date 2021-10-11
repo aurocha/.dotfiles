@@ -1,0 +1,112 @@
+# aurocha@gmail.com
+#
+
+#-headers
+ignore *
+unignore from to cc subject date reply-to x-address x-organisation
+hdr_order From From: To: Subject: Date: Reply-To: X-Adress: X-Organisation
+
+#-pager related
+set menu_scroll=yes
+set beep_new=yes
+unset arrow_cursor
+set delete=yes
+set ascii_chars=yes
+set fast_reply=yes
+set sort=reverse-date
+# unset pager_context
+# unset pager_index_lines
+set pager_stop=yes
+set mailcap_path=/etc/mailcap
+set mailcap_sanitize=yes
+set index_format="%4C %Z %[%b %d] %-15.15L (%4c) %s"
+set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? ld:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l?%l?]---(%s/%S)-%>-(%P)---"
+
+set realname="Américo Rocha"
+my_hdr From: Américo Rocha <aurocha@gmail.com>
+set reverse_name
+set folder="~/Mail"
+set postponed="~/Mail/postponed"
+set record="~/Mail/sent"
+set mbox="~/Mail"
+mailboxes /var/mail/aurocha
+set folder_format="%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
+set confirmcreate=yes
+set confirmappend=no
+set copy=yes
+
+#-misc options
+set print_command="cat $1 | pr -t -o 5 -w 85 | lpr -Plp"
+set print_decode=yes
+set send_charset="utf-8"
+set smileys="(>From )|(:[-^]?[][)(><}{|/DP])"
+set user_agent=yes
+set weed=yes
+set alias_format="%4n %t %-10a   %r"
+set askcc=no
+set attach_format="%u%D%I %t%4n %T%.40d%> [%.7m/%.10M, %.6e%?C?, %C?, %s] "
+set attach_sep="\n"
+set forw_format="Fwd: %s"
+set attach_split=yes
+set attribution="On %d, %n wrote:"
+set autoedit=no
+set auto_tag=no
+set date_format="!%a, %b %d, %Y at %I:%M:%S%p %Z"
+set edit_headers=no
+set editor="/usr/bin/vim +':set textwidth=77' +':set wrap' +\`awk '/^$/ {print i+2; exit} {i++}' %s\` %s""
+set visual="vim"
+set fcc_attach=yes
+set fcc_clear=no
+unset help
+set implicit_autoview=yes
+set include=ask-yes
+#set in_reply_to="%i; from %a on %{!%a, %b %d, %Y at %I:%M:%S%p %Z}"
+set nomark_old
+unset markers
+set quit=ask-yes
+set allow_8bit
+set abort_nosubject=no
+set abort_unmodified=no
+set mime_forward=ask-no
+set mime_forward_rest=ask-no
+unset save_empty
+set nosig_dashes
+
+#-autoview Stuff
+auto_view application/x-gunzip
+auto_view application/x-gzip
+auto_view text/html text/enriched text/x-vcard application/x-zip-compressed
+alternative_order text/plain text/html text/enriched
+auto_view text/x-vcard
+auto_view image/gif
+auto_view image/jpeg
+auto_view image/tiff
+auto_view application/msword
+auto_view application/pdf
+auto_view application/postscript
+
+#-fun related :-)
+# my_hdr X-Disclaimer: "What sees is all there is"
+# my_hdr  X-Operating-System: `uname -srm`
+
+#-Color definitions
+#-color normal white default
+color hdrdefault white default
+color quoted brightblue default
+color signature red default
+color indicator brightwhite blue
+color error brightred default
+color status white blue
+color tree magenta default
+color tilde magenta default
+color message brightcyan default
+color markers brightcyan default
+color attachment brightmagenta default
+color search default green
+color header brightwhite default ^(From|Subject):
+color body magenta default "(ftp|http)://[^ ]+"
+color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+
+color underline brightgreen default
+# attributes when using a mono terminal
+mono header underline ^(From|Subject):
+mono quoted bold
