@@ -1,3 +1,3 @@
-alias dnf='sudo dnf'
-alias mutt='tmux -c neomutt'
-alias dup='dnf --refresh update'
+alias apt='sudo apt'
+alias mutt='neomutt'
+alias aptitude='sudo aptitude'
