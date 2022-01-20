@@ -1,0 +1,132 @@
+# my alacritty.yml configuration
+# Set window size: https://github.com/alacritty/alacritty/issue
+# If on GNOME Wayland, change Exec=env WAYLAND_DISPLAY= alacritty in /usr/share/applications/alacritty.desktop
+shell:
+  program: /usr/bin/bash
+  args:
+    - --login
+
+window:
+  dimensions:
+    columns: 110
+    lines: 28
+
+# Set background opacity
+background_opacity: 0.98
+
+# Set cursor style (Always, underline blinking)
+cursor:
+  style:
+    shape: Underline
+    blinking: Always
+    blink_interval: 500
+  vi_mode_style:
+    shape: Beam
+
+# Font configuration: https://wiki.archlinux.org/title/Alacritty
+# Font changed to Liberation Mono
+font:
+  normal:
+    family: Liberation Mono
+    style: Regular
+
+  bold:
+    family: Liberation Mono
+    style: Regular
+
+  italic:
+    family: Liberation Mono
+    style: Italic
+
+  bold_italic:
+    family: Liberation Mono
+    style: Bold Italic
+
+  size: 11
+
+# Color schemes: https://github.com/alacritty/alacritty/wiki/Color-schemes
+# The 'GNOME Light and Dark" themes from GNOME terminal.
+schemes:
+  gnome_light: &light
+    primary:
+      foreground: '#171421'
+      background: '#ffffff'
+      bright_foreground: '#5e5c64'
+
+    normal:
+      black:   '#171421'
+      red:     '#c01c28'
+      green:   '#26a269'
+      yellow:  '#a2734c'
+      blue:    '#12488b'
+      magenta: '#a347ba'
+      cyan:    '#2aa1b3'
+      white:   '#d0cfcc'
+
+    bright:
+      black:   '#5e5c64'
+      red:     '#f66151'
+      green:   '#33d17a'
+      yellow:  '#e9ad0c'
+      blue:    '#2a7bde'
+      magenta: '#c061cb'
+      cyan:    '#33c7de'
+      white:   '#ffffff'
+schemes:
+  gnome_light: &dark
+    primary:
+      foreground: '#d0cfcc'
+      background: '#222222' ###'#171421'
+      bright_foreground: '#ffffff'
+  
+    normal:
+      black:   '#171421'
+      red:     '#c01c28'
+      green:   '#26a269'
+      yellow:  '#a2734c'
+      blue:    '#4e8cdb' ####'#12488b'
+      magenta: '#a347ba'
+      cyan:    '#2aa1b3'
+      white:   '#d0cfcc'
+  
+    bright:
+      black:   '#5e5c64'
+      red:     '#f66151'
+      green:   '#33d17a'
+      yellow:  '#e9ad0c'
+      blue:    '#2a7bde'
+      magenta: '#c061cb'
+      cyan:    '#33c7de'
+      white:   '#ffffff'
+
+# Colors (Ayu Dark)
+# Default colors
+schemes:
+  aiu_dark: &ayu
+    primary:
+      background: '#0A0E14'
+      foreground: '#B3B1AD'
+
+    # Normal colors
+    normal:
+      black: '#01060E'
+      red: '#EA6C73'
+      green: '#91B362'
+      yellow: '#F9AF4F'
+      blue: '#53BDFA'
+      magenta: '#FAE994'
+      cyan: '#90E1C6'
+      white: '#C7C7C7'
+
+    # Bright colors
+    bright:
+      black: '#686868'
+      red: '#F07178'
+      green: '#C2D94C'
+      yellow: '#FFB454'
+      blue: '#59C2FF'
+      magenta: '#FFEE99'
+      cyan: '#95E6CB'
+      white: '#FFFFFF'
+
+colors: *dark
