@@ -23,6 +23,15 @@ cursor:
   vi_mode_style:
     shape: Beam
 
+# Various
+  gtk_theme_variant: dark
+  history: 99999
+
+
+# mouse
+mouse:
+  hide_when_typing: true
+
 # Font configuration: https://wiki.archlinux.org/title/Alacritty
 # Font changed to Liberation Mono
 font:
