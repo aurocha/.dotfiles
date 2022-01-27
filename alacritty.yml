@@ -12,7 +12,7 @@ window:
     lines: 28
 
 # Set background opacity
-background_opacity: 0.98
+window_opacity: 0.98
 
 # Set cursor style (Always, underline blinking)
 cursor:
