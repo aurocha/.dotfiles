@@ -6,6 +6,7 @@ shell:
   args:
     - --login
 
+# Window      
 window:
   dimensions:
     columns: 110
