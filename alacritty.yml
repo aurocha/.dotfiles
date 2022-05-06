@@ -12,6 +12,7 @@ window:
     columns: 110
     lines: 28
   opacity: 0.98
+  dynamic_title: true
 
 # Set cursor style (Always, underline blinking)
 cursor:
@@ -127,7 +128,7 @@ schemes:
       white: '#C7C7C7'
 
     # Bright colors
-    bright:
+    bright:	
       black: '#686868'
       red: '#F07178'
       green: '#C2D94C'
@@ -136,5 +137,34 @@ schemes:
       magenta: '#FFEE99'
       cyan: '#95E6CB'
       white: '#FFFFFF'
+# Colors (Tangoish)
+# Note: Orange is used in place of Cyan
+schemes:
+tango: &tango
+  primary:
+    background: '#222222'
+    foreground: '#eeeeec'
+  
+  # Normal colors
+  normal:
+     black:   '#2e3436'
+     red:     '#cc0000'
+     green:   '#73d216'
+     yellow:  '#edd400'
+     blue:    '#3465a4'
+     magenta: '#75507b'
+     cyan:    '#f57900'
+     white:   '#d3d7cf'
 
-colors: *dark
+  # Bright colors
+  bright:
+     black:   '#2e3436'
+     red:     '#ef2929'
+     green:   '#8ae234'
+     yellow:  '#fce94f'
+     blue:    '#729fcf'
+     magenta: '#ad7fa8'
+     cyan:    '#fcaf3e'
+     white:   '#eeeeec'
+
+colors: *tango
