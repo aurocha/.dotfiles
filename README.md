@@ -1,2 +1,2 @@
 # dotfiles
-My Dotfiles - Currently running Arch
+My Dotfiles - Currently running Arch Linux
