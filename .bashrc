@@ -56,9 +56,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[0m\][\[\e[0;92m\]\u\[\e[0m\]@\[\e[0m\]\h \[\e[0;94m\]\w\[\e[0m\]]\[\e[0m\]\$ \[\e[0m\]'
+	PS1='\[\e[0;94m\]\w \[\e[0m\]\$ \[\e[0m\]'
 else
-    PS1='[\u@\h \w] '
+    	PS1='\u@\h \w> '
 fi
 unset color_prompt force_color_prompt
 
@@ -105,5 +105,7 @@ fi
 # else
 #     start_agent;
 # fi
+
+export EDITOR=/usr/bin/vim
 
 unset rc
