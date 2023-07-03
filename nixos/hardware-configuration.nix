@@ -19,10 +19,12 @@
       options = [ "subvol=@" ];
     };
   
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/172f4b08-4ff7-4650-8b27-85e0f23449af";
-  boot.initrd.luks.devices."cryptroot".allowDiscards = true;
-  boot.initrd.luks.devices."cryptroot".keyFile = "/cryptroot.key";
-  boot.initrd.luks.devices."cryptroot".fallbackToPassword = true;
+  boot.initrd.luks.devices."cryptroot" = { 
+    device = "/dev/disk/by-uuid/172f4b08-4ff7-4650-8b27-85e0f23449af";
+    allowDiscards = true;
+    keyFile = "/cryptroot.key";
+    fallbackToPassword = true;
+  };
 
   fileSystems."/var" =
     { device = "/dev/disk/by-uuid/3677cb6f-fc98-4b77-92b2-5ae13e84c446";
@@ -36,10 +38,12 @@
       options = [ "subvol=@home" ];
     };
 
-  boot.initrd.luks.devices."cryptdata".device = "/dev/disk/by-uuid/f0c9902c-12b4-480f-90dd-8ed175f2c671";
-  boot.initrd.luks.devices."cryptdata".allowDiscards = true;
-  boot.initrd.luks.devices."cryptdata".keyFile = "/cryptdata.key";
-  boot.initrd.luks.devices."cryptdata".fallbackToPassword = true;
+  boot.initrd.luks.devices."cryptdata" = {
+    device = "/dev/disk/by-uuid/f0c9902c-12b4-480f-90dd-8ed175f2c671";
+    allowDiscards = true;
+    keyFile = "/cryptdata.key";
+    fallbackToPassword = true;
+  };
   
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/8495-8CD3";
