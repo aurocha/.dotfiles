@@ -56,7 +56,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	PS1='\[\e[0;94m\]\w \[\e[0m\]\$ \[\e[0m\]'
+	PS1='\n\[\e[92;1m\][\u@\h:\[\e[94m\]\w\[\e[92m\]]\$ \[\e[0m\]'
 else
     	PS1='\u@\h \w> '
 fi
@@ -65,7 +65,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*|alacritty*)
-    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+	PS1='\n\[\e[92;1m\][\u@\h:\[\e[94m\]\w\[\e[92m\]]\$ \[\e[0m\]'
     ;;
 *)
     ;;
@@ -83,7 +83,7 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-# Set up ssh-agent
+# # Set up ssh-agent
 # SSH_ENV="$HOME/.ssh/environment"
 # 
 # function start_agent {
@@ -94,7 +94,7 @@ fi
 #     . "${SSH_ENV}" > /dev/null
 #     /usr/bin/ssh-add;
 # }
-# 
+# # 
 # # Source SSH settings, if applicable
 # if [ -f "${SSH_ENV}" ]; then
 #     . "${SSH_ENV}" > /dev/null
