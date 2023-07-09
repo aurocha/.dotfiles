@@ -142,7 +142,7 @@ schemes:
 schemes:
 tango: &tango
   primary:
-    background: '#222222'
+    background: '#1b1b1b' ##222222'
     foreground: '#eeeeec'
   
   # Normal colors
@@ -151,9 +151,9 @@ tango: &tango
      red:     '#cc0000'
      green:   '#73d216'
      yellow:  '#edd400'
-     blue:    '#3465a4'
+     blue:    '#3688ff' ####'#3465a4'
      magenta: '#75507b'
-     cyan:    '#f57900'
+     cyan:    '#0dd4fe' ####'#f57900'
      white:   '#d3d7cf'
 
   # Bright colors
@@ -164,7 +164,7 @@ tango: &tango
      yellow:  '#fce94f'
      blue:    '#238bff' ##'729fcf'
      magenta: '#ad7fa8'
-     cyan:    '#4bd4ff' ##'fcaf3e'
+     cyan:    '#3688ff' ####'#4bd4ff' ##'fcaf3e'
      white:   '#eeeeec'
 
 colors: *tango
