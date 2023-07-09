@@ -33,22 +33,22 @@ mouse:
   hide_when_typing: true
 
 # Font configuration: https://wiki.archlinux.org/title/Alacritty
-# Font changed to Liberation Mono
+# Font changed to Ubuntu Mono
 font:
   normal:
-    family: Liberation Mono
+    family: DejaVu Sans Mono 
     style: Regular
 
   bold:
-    family: Liberation Mono
-    style: Regular
+    family: DejaVu Sans Mono
+    style: Bold
 
   italic:
-    family: Liberation Mono
+    family: DejaVu Sans Mono
     style: Italic
 
   bold_italic:
-    family: Liberation Mono
+    family: DejaVu Sans Mono
     style: Bold Italic
 
   size: 11
@@ -160,11 +160,11 @@ tango: &tango
   bright:
      black:   '#2e3436'
      red:     '#ef2929'
-     green:   '#8ae234'
+     green:   '#64ff7b' ##'8ae234'
      yellow:  '#fce94f'
-     blue:    '#729fcf'
+     blue:    '#238bff' ##'729fcf'
      magenta: '#ad7fa8'
-     cyan:    '#fcaf3e'
+     cyan:    '#4bd4ff' ##'fcaf3e'
      white:   '#eeeeec'
 
 colors: *tango
