@@ -13,6 +13,9 @@ window:
     lines: 28
   opacity: 0.98
   dynamic_title: true
+  padding:
+    x: 6
+    y: 6
 
 # Set cursor style (Always, underline blinking)
 cursor:
@@ -51,7 +54,10 @@ font:
     family: DejaVu Sans Mono
     style: Bold Italic
 
-  size: 11
+  size: 12
+  offset:
+    x: 0
+    y: 3
 
 # Color schemes: https://github.com/alacritty/alacritty/wiki/Color-schemes
 # The 'GNOME Light and Dark" themes from GNOME terminal.
