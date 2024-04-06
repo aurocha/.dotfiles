@@ -1,3 +1,2 @@
 # dotfiles
-My Dotfiles - Arch Linux
-My Dotfiles - Now Debian
+My Dotfiles - Fedora 40
