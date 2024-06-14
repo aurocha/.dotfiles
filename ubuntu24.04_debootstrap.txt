@@ -39,7 +39,8 @@
 					debotstrap noble /mnt http://pt.archive.ubuntu.com/ubuntu
 14.	Generate fstab for new system: 
 					genfstab -U /mnt >> /mnt/etc/fstab
-15.	Copy ubuntu.source to new new root: cp -av /etc/apt/sources.list.d/ubuntu.sources /mnt/etc/apt/sources.list.d/
+15.	Copy ubuntu.source to new new root: 
+					cp -av /etc/apt/sources.list.d/ubuntu.sources /mnt/etc/apt/sources.list.d/
 16.	Chroot to new system: 
 					arch-chroot /mnt
 17. 	Configure new system
