@@ -53,7 +53,7 @@
        	mkdir -p /mnt/boot/efi
        	mount /dev/sda1 /mnt/boot/efi
 
-13.	#### Install base system: 
+13.	#### Install base system:  
 		debotstrap noble /mnt http://pt.archive.ubuntu.com/ubuntu
 
 14.	#### Generate fstab for new system: 
