@@ -31,8 +31,8 @@
 8.	#### Mount /dev/mapper/sda5_crypt to /mnt
 		mount /dev/mapper/sda5_crypt /mnt
 
-9. 	#### Create btrfs subvolumes: 
-        	btrfs su cr /mnt/@
+9. 	#### Create btrfs subvolumes:   
+   		btrfs su cr /mnt/@
 		btrfs su cr /mnt/@var
 		btrfs su cr /mnt/@tmp
 		btrfs su cr /mnt/@opt
