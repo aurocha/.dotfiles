@@ -63,10 +63,10 @@
 		cp -av /etc/apt/sources.list.d/ubuntu.sources /mnt/etc/apt/sources.list.d/
 
 16.	#### Chroot to new system: 
-		arch-chroot /mnt
+	arch-chroot /mnt
 
 17. #### Install the needed packages
-        	apt update
+    		apt update
         	apt upgrade -y
         	apt install linux-{,image-,headers-}generic-hwe-24.04 linux-firmware initramfs-tools efibootmgr ryptsetup-initramfs btrfs-progs cryptsetup vim network-manager iw iwd iucode-tool fwupd htop needrestart dmidecode gnupg grub-efi-amd64 shim shim-signed keyboard-configuration ufw
 
@@ -85,7 +85,7 @@
 19.	#### Install grub: 
 		grub-install --uefi-secure-boot --target=x86_64-efi --efi-directory=/boot/efi /dev/sda --recheck
 
-20.	#### Configure system:  
+20.	#### Configure system:
 		update-grub
 		update-initramfs -cvk all
 		dpkg-reconfigure tzdata
