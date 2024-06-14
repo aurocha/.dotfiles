@@ -1,7 +1,7 @@
 ## Install Ubuntu 24.04 LTS (Noble Numbat) in a Luks container+btrfs+subvolumes using debootstrap   
 
 
-1.  #### Boot from Ubuntu Iso, bypass install, open a terminal, ajust your keyboard layout and get root:
+1.  	#### Boot from Ubuntu Iso, bypass install, open a terminal, ajust your keyboard layout and get root:
 
 		setxkbmap pt (or es,de,uk,etc)
   		sudo -i
@@ -14,7 +14,7 @@
 3.	#### Install debootstrap and arch-install-scripts:
 		apt update; apt install -y debootstrap arch-install-scripts
 
-4.	#### Format disk. As I am on a dual boot, ths is how I choose to partition the disk.
+4.	#### Format disk. As I am on a dual boot, ths is how I choose to partition my disk.
 		/dev/sda1 --> boot/efi
 		/dev/sda4 --> /boot
 		/dev/sda5 --> /
@@ -22,7 +22,7 @@
 5.	#### Create luks container: 
 		cryptsetup -c aes-xts-plain64 -h sha512 -s 512 --use-random --iter-time=300 luksFormat /dev/sda5
 
-6. #### Open new luks container: 
+6. 	#### Open new luks container: 
 		cryptsetup open /dev/sda5 sda5_crypt
 
 7.	#### Format /dev/mapper sda5_crypt as btrfs: 
@@ -32,7 +32,7 @@
 		mount /dev/mapper/sda5_crypt /mnt
 
 9. 	#### Create btrfs subvolumes: 
-        btrfs su cr /mnt/@
+        	btrfs su cr /mnt/@
 		btrfs su cr /mnt/@var
 		btrfs su cr /mnt/@tmp
 		btrfs su cr /mnt/@opt
@@ -45,13 +45,13 @@
 		mkdir -p /mnt{boot,var,opt,home}
 
 12.	#### Mount following subvolumes:
-        mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
-        mkdir -p /mnt/var/tmp
-        mount -o subvol=@tmp,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var/tmp
-        mount -o subvol=@opt,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/opt
-        mount /dev/sda4 /mnt/boot
-        mkdir -p /mnt/boot/efi
-        mount /dev/sda1 /mnt/boot/efi
+        	mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
+        	mkdir -p /mnt/var/tmp
+        	mount -o subvol=@tmp,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var/tmp
+        	mount -o subvol=@opt,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/opt
+        	mount /dev/sda4 /mnt/boot
+        	mkdir -p /mnt/boot/efi
+        	mount /dev/sda1 /mnt/boot/efi
 
 13.	#### Install base system: 
 		debotstrap noble /mnt http://pt.archive.ubuntu.com/ubuntu
@@ -66,9 +66,9 @@
 		arch-chroot /mnt
 
 17. #### Install the needed packages
-        apt update
-        apt upgrade -y
-        apt install linux-{,image-,headers-}generic-hwe-24.04 linux-firmware initramfs-tools efibootmgr ryptsetup-initramfs btrfs-progs cryptsetup vim network-manager iw iwd iucode-tool fwupd htop needrestart dmidecode gnupg grub-efi-amd64 shim shim-signed keyboard-configuration ufw
+        	apt update
+        	apt upgrade -y
+        	apt install linux-{,image-,headers-}generic-hwe-24.04 linux-firmware initramfs-tools efibootmgr ryptsetup-initramfs btrfs-progs cryptsetup vim network-manager iw iwd iucode-tool fwupd htop needrestart dmidecode gnupg grub-efi-amd64 shim shim-signed keyboard-configuration ufw
 
 18.	#### Edit crypttab and adjust by adding: 
 		sda5_crypt	UUID=uuidof/dev/sda5 none luks,discard
@@ -89,16 +89,16 @@
 		update-grub
 		update-initramfs -cvk all                		
 		dpkg-reconfigure tzdata
-        dpkg-reconfigure locales
-        dpkg-reconfigure keybord-configuration
-        echo "hostname" > /etc/hostname
-        echo "127.0.1.1 hostname" >> /etc/hosts
-        systemctl  enable NetworkManager
-        apt install ubuntu-desktop-minimal
+        	dpkg-reconfigure locales
+        	dpkg-reconfigure keybord-configuration
+        	echo "hostname" > /etc/hostname
+        	echo "127.0.1.1 hostname" >> /etc/hosts
+        	systemctl  enable NetworkManager
+        	apt install ubuntu-desktop-minimal
 		systemctl enable ufw
 		ufw enable
-        systemctl set-default graphical
-        systemctl enable gdm3
+        	systemctl set-default graphical
+        	systemctl enable gdm3
 		passwd 		# <----change root pasword, this is important!!!
 
 21.	#### Exit the chroot by hitting CTRL+D
