@@ -67,7 +67,7 @@
 
 18.	Edit crypttab and adjust by adding: 
 					sda5_crypt	UUID=uuidof/dev/sda5 none luks,discard
-					You can get the UUID of pa partition by running blkid. If you want to add it to crytpttab and then edit the file, try doing the following:
+					You can get the UUID of a partition by running blkid. If you want to add it to crytpttab and then edit the file, try doing the following:
 					echo `blkid -o value -s UUID /dev/sda5` >> /etc/crypttab
 					and then edit it so you get something like:
 					sda5_crypt	UUID=9beeb70d-c3ae-4652-a2e8-609c825403df	none	luks,discard
