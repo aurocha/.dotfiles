@@ -1,4 +1,4 @@
-## Install Ubuntu 24.03 LTS Noble Numbat in a Luks container+btrfs+subvolumes using debootstrap   
+## Install Ubuntu 24.04 LTS (Noble Numbat) in a Luks container+btrfs+subvolumes using debootstrap   
 
 
 1.  #### Boot from Ubuntu Iso, bypass install, open a terminal, ajust your keyboard layout and get root:
