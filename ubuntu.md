@@ -3,8 +3,8 @@
 
 1.  	#### Boot from Ubuntu Iso, bypass install, open a terminal, ajust your keyboard layout and get root:
 
-		setxkbmap pt (or es,de,uk,etc)
-  		sudo -i
+	setxkbmap pt (or es,de,uk,etc)
+	sudo -i
 
 2. 	#### Connect to network, either by using the icon on the GNOME's topbar or by running nmcli  
 
