@@ -44,7 +44,7 @@
 11.	#### Create mountpoints: 
 		mkdir -p /mnt{boot,var,opt,home}
 
-12.	#### Mount following subvolumes:
+12.	#### Mount following subvolumes:  
         	mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
         	mkdir -p /mnt/var/tmp
         	mount -o subvol=@tmp,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var/tmp
