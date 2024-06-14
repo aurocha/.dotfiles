@@ -87,7 +87,7 @@
 
 20.	#### Configure system:  
 		update-grub
-		update-initramfs -cvk all                		
+		update-initramfs -cvk all
 		dpkg-reconfigure tzdata
 	        dpkg-reconfigure locales
 	        dpkg-reconfigure keybord-configuration
