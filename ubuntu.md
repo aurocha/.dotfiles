@@ -85,20 +85,20 @@
 19.	#### Install grub: 
 		grub-install --uefi-secure-boot --target=x86_64-efi --efi-directory=/boot/efi /dev/sda --recheck
 
-20.	#### Configure system
+20.	#### Configure system:  
 		update-grub
 		update-initramfs -cvk all                		
 		dpkg-reconfigure tzdata
-        	dpkg-reconfigure locales
-        	dpkg-reconfigure keybord-configuration
-        	echo "hostname" > /etc/hostname
-        	echo "127.0.1.1 hostname" >> /etc/hosts
-        	systemctl  enable NetworkManager
-        	apt install ubuntu-desktop-minimal
+	        dpkg-reconfigure locales
+	        dpkg-reconfigure keybord-configuration
+	        echo "hostname" > /etc/hostname
+	        echo "127.0.1.1 hostname" >> /etc/hosts
+	        systemctl  enable NetworkManager
+	        apt install ubuntu-desktop-minimal
 		systemctl enable ufw
 		ufw enable
-        	systemctl set-default graphical
-        	systemctl enable gdm3
+	        systemctl set-default graphical
+	        systemctl enable gdm3
 		passwd 		# <----change root pasword, this is important!!!
 
 21.	#### Exit the chroot by hitting CTRL+D
