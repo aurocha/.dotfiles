@@ -1,10 +1,10 @@
 ## Install Ubuntu 24.04 LTS (Noble Numbat) in a Luks container+btrfs+subvolumes using debootstrap   
 
 
-1.  	#### Boot from Ubuntu Iso, bypass install, open a terminal, ajust your keyboard layout and get root:
+1. #### Boot from Ubuntu Iso, bypass install, open a terminal, ajust your keyboard layout and get root:
 
-	setxkbmap pt (or es,de,uk,etc)
-	sudo -i
+		setxkbmap pt (or es,de,uk,etc)
+		sudo -i
 
 2. 	#### Connect to network, either by using the icon on the GNOME's topbar or by running nmcli  
 
