@@ -101,9 +101,9 @@
 	        systemctl enable gdm3
 		passwd 		# <----change root pasword, this is important!!!
 
-21.	#### Exit the chroot by hitting CTRL+D
+22.	#### Exit the chroot by hitting CTRL+D
 
-22.	#### Unmount the chroot
+23.	#### Unmount the chroot
 					
 		umount /mnt -R
 
