@@ -21,38 +21,39 @@
 		/dev/sda5 --> /
 		/dev/sda6 --> /home
 
-6.	#### Create luks container
+5.	#### Create luks container
    
 		cryptsetup -c aes-xts-plain64 -h sha512 -s 512 --use-random --iter-time=300 luksFormat /dev/sda5
 
-8. 	#### Open new luks container
+6. 	#### Open new luks container
    
 		cryptsetup open /dev/sda5 sda5_crypt
 
-10.	#### Format /dev/mapper sda5_crypt as btrfs
+7.	#### Format /dev/mapper sda5_crypt as btrfs
     
 		mkfs.btrfs -L Ubuntu /dev/mapper/sda5_crypt
 
-12.	#### Mount /dev/mapper/sda5_crypt to /mnt
+8.	#### Mount /dev/mapper/sda5_crypt to /mnt
     
 		mount /dev/mapper/sda5_crypt /mnt  
 
-14. 	#### Create btrfs subvolumes   
+9. 	#### Create btrfs subvolumes
+    
    		btrfs su cr /mnt/@
 		btrfs su cr /mnt/@var
 		btrfs su cr /mnt/@tmp
-		btrfs su cr /mnt/@opt
+		btrfs suhttps://github.com/aurocha/.dotfiles/blob/main/ubuntu.md cr /mnt/@opt
 
-15.	#### Unmount /mnt and mount subvolumes
+10.	#### Unmount /mnt and mount subvolumes
     
 		umount -R /mnt
 		mount -o subvol=@,rw,defaults,compress=zstd:3 /dev/mapper/sda5_crypt /mnt
 
-17.	#### Create mountpoints
+11.	#### Create mountpoints
     
 		mkdir -p /mnt{boot,var,opt,home}
 
-19.	#### Mount following subvolumes
+12.	#### Mount following subvolumes
     
 	       	mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
 	       	mkdir -p /mnt/var/tmp
@@ -62,29 +63,29 @@
 	       	mkdir -p /mnt/boot/efi
 	       	mount /dev/sda1 /mnt/boot/efi
 
-21.	#### Install base system
+13.	#### Install base system
     
 		debotstrap noble /mnt http://pt.archive.ubuntu.com/ubuntu
 
-23.	#### Generate fstab for new system
+14.	#### Generate fstab for new system
     
 		genfstab -U /mnt >> /mnt/etc/fstab
 
-25.	#### Copy ubuntu.source to new new root
+15.	#### Copy ubuntu.source to new new root
     
 		cp -av /etc/apt/sources.list.d/ubuntu.sources /mnt/etc/apt/sources.list.d/
 
-27.	#### Chroot to new system
+16.	#### Chroot to new system
     
 		arch-chroot /mnt
 
-29.	#### Install the needed packages
+17.	#### Install the needed packages
 	
     		apt update
         	apt upgrade -y
         	apt install linux-{,image-,headers-}generic-hwe-24.04 linux-firmware initramfs-tools efibootmgr ryptsetup-initramfs btrfs-progs cryptsetup vim network-manager iw iwd iucode-tool fwupd htop needrestart dmidecode gnupg grub-efi-amd64 shim shim-signed keyboard-configuration ufw
 
-31.	#### Edit crypttab and adjust by adding
+18.	#### Edit crypttab and adjust by adding
     
 		sda5_crypt	UUID=uuidof/dev/sda5 none luks,discard
 
@@ -97,11 +98,11 @@
 
 		sda5_crypt	UUID=9beeb70d-c3ae-4652-a2e8-609c825403df	none	luks,discard
 
-32.	#### Install grub
+19.	#### Install grub
     
 		grub-install --uefi-secure-boot --target=x86_64-efi --efi-directory=/boot/efi /dev/sda --recheck
 
-34.	#### Configure system
+20.	#### Configure system
     
 		update-grub
 		update-initramfs -cvk all
@@ -118,9 +119,9 @@
 	        systemctl enable gdm3
 		passwd 		# <----change root pasword, this is important!!!
 
-36.	#### Exit the chroot by hitting CTRL+D
+21.	#### Exit the chroot by hitting CTRL+D
 
-37.	#### Unmount the chroot
+22.	#### Unmount the chroot
 					
 		umount /mnt -R
 
