@@ -45,13 +45,13 @@
 		mkdir -p /mnt{boot,var,opt,home}
 
 12.	#### Mount following subvolumes:  
-        	mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
-        	mkdir -p /mnt/var/tmp
-        	mount -o subvol=@tmp,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var/tmp
-        	mount -o subvol=@opt,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/opt
-        	mount /dev/sda4 /mnt/boot
-        	mkdir -p /mnt/boot/efi
-        	mount /dev/sda1 /mnt/boot/efi
+       	mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
+       	mkdir -p /mnt/var/tmp
+       	mount -o subvol=@tmp,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var/tmp
+       	mount -o subvol=@opt,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/opt
+       	mount /dev/sda4 /mnt/boot
+       	mkdir -p /mnt/boot/efi
+       	mount /dev/sda1 /mnt/boot/efi
 
 13.	#### Install base system: 
 		debotstrap noble /mnt http://pt.archive.ubuntu.com/ubuntu
