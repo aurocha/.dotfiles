@@ -9,7 +9,7 @@
 2. 	#### Connect to network, either by using the icon on the GNOME's topbar or by running nmcli  
 
 		nmcli d wifi c SSID --ask
-		nmcli d wifi c SSID hiiden yes --ask (if wifi hidden)
+		nmcli d wifi c SSID hidden yes --ask (if hidden wifi)
 
 3.	#### Install debootstrap and arch-install-scripts:
 		apt update; apt install -y debootstrap arch-install-scripts
