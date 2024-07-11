@@ -42,7 +42,7 @@
 		mount -o subvol=@,rw,defaults,compress=zstd:3 /dev/mapper/sda5_crypt /mnt
 11.	Create mountpoints  
 
-		mkdir -p /mnt{boot,var,opt,home}
+		mkdir -p /mnt/{boot,var,opt,home}
 12.	Mount following subvolumes  
 
 		mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
@@ -54,7 +54,7 @@
 		mount /dev/sda1 /mnt/boot/efi
 13.	Install base system  
 
-		debotstrap noble /mnt http://pt.archive.ubuntu.com/ubuntu
+		debootstrap noble /mnt http://pt.archive.ubuntu.com/ubuntu
 14.	Generate fstab for new system  
 
 		genfstab -U /mnt >> /mnt/etc/fstab
