@@ -68,7 +68,7 @@
 
 		apt update
 		apt upgrade -y
-		apt install linux-{,image-,headers-}generic-hwe-24.04 linux-firmware initramfs-tools efibootmgr cryptsetup-initramfs btrfs-progs cryptsetup vim network-manager iw iwd iucode-tool fwupd htop needrestart dmidecode gnupg grub-efi-amd64 shim shim-signed keyboard-configuration ufw
+		apt install linux-{,image-,headers-}generic-hwe-24.04 linux-firmware initramfs-tools efibootmgr cryptsetup-initramfs btrfs-progs cryptsetup vim network-manager iw iwd iucode-tool fwupd htop needrestart dmidecode gnupg grub-efi-amd64 shim shim-signed keyboard-configuration ufw snapd
 18.	Edit crypttab and adjust by adding  
 
 		sda5_crypt	UUID=uuidof/dev/sda5 none luks,discard  
@@ -95,13 +95,14 @@
 		systemctl  enable NetworkManager
 		apt install ubuntu-desktop-minimal
 		systemctl enable ufw
+		systemctl enable snapd
 		ufw enable
 		systemctl set-default graphical
 		systemctl enable gdm3
 		passwd 		**change root pasword, this is important!**
-21.	Exit the chroot by hitting CTRL+D  
+22.	Exit the chroot by hitting CTRL+D  
 
-22.	Unmount the chroot  
+23.	Unmount the chroot  
 
 		umount /mnt -R
 
