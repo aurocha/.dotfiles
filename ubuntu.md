@@ -45,12 +45,12 @@
 		mkdir -p /mnt/{boot,var,opt,home}
 12.	Mount following subvolumes  
 
-		mount -o subvol=@var,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var
+		mount -o subvol=@var,rw,defaults,compress=zstd:3 /dev/mapper/sda5_crypt /mnt/var
 		mkdir -p /mnt/var/tmp
-		mount -o subvol=@opt,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/opt
+		mount -o subvol=@opt,rw,defaults,compress=zstd:3 /dev/mapper/sda5_crypt /mnt/opt
 		mount /dev/sda4 /mnt/boot
 		mkdir -p /mnt/boot/efi
-		mount -o subvol=@tmp,rw,defaults,compress=zstd:# /dev/mapper/sda5 /mnt/var/tmp
+		mount -o subvol=@tmp,rw,defaults,compress=zstd:3 /dev/mapper/sda5_crypt /mnt/var/tmp
 		mount /dev/sda1 /mnt/boot/efi
 13.	Install base system  
 
