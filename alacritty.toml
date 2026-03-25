@@ -1,0 +1,81 @@
+# Alacritty Configuration (default-like template)
+
+[window]
+padding = { x = 6, y = 6 }
+decorations = "full"
+# opacity = 0.98
+startup_mode = "Windowed"
+title = "Alacritty"
+dynamic_title = true
+dimensions = { columns = 130, lines = 30 }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+normal = { family = "JetBrains Mono", style = "Regular" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
+bold_italic = { family = "JetBrains Mono", style = "Bold Italic" }
+size = 12.0
+
+[colors.primary]
+background = "#1c1c1f"
+foreground = "#ffffff"
+
+[colors.cursor]
+text = "#1e1e1e"
+cursor = "#ffffff"
+
+[colors.selection]
+text = "#ffffff"
+background = "#3c3c3c"
+
+[colors.normal]
+black   = "#1e1e1e"
+red     = "#c01c28"
+green   = "#2baa70"
+yellow  = "#a2734c"
+blue    = "#2a6fd6"   # was #12488b (lifted brightness)
+magenta = "#a347ba"
+cyan    = "#0AB9DC"
+white   = "#d0cfcc"
+
+[colors.bright]
+black   = "#5e5c64"
+red     = "#f66151"
+green   = "#33d17a"
+yellow  = "#e9ad0c"
+blue    = "#4c8dff"   # was #2a7bde (slightly brighter)
+magenta = "#c061cb"
+cyan    = "#33c7de"
+white   = "#ffffff"
+
+[colors.dim]
+black   = "#1e1e1e"
+red     = "#8b0000"
+green   = "#1f7a4f"
+yellow  = "#8a6d3b"
+blue    = "#1a56b3"   # was #0b3a75 (lifted but still dim)
+magenta = "#6f2a8e"
+cyan    = "#1c7a86"
+white   = "#a0a0a0"
+
+[cursor]
+style = { shape = "Underline", blinking = "On" }
+
+[selection]
+save_to_clipboard = false
+
+[mouse]
+hide_when_typing = false
+
+[keyboard]
+bindings = [
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  { key = "C", mods = "Control|Shift", action = "Copy" }
+]
+
+[general]
+live_config_reload = true
