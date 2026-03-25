@@ -1,2 +1,2 @@
 # dotfiles
-My Dotfiles - Fedora 41 / Arch
+My Dotfiles - Fedora 44 / Arch
