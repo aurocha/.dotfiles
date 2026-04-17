@@ -5,10 +5,22 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# Load aliases - if any
+test -s ~/.alias && . ~/.alias || true
+
+# Function for fancy bash-prompt ##https://code.mendhak.com/simple-bash-prompt-for-developers-ps1-git/
+function parse_git_dirty {
+  [[ $(git status --porcelain 2> /dev/null) ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ (\1$(parse_git_dirty))/"
+}
+
+
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:/opt/platform-tools:" ]]
 then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:/opt/platform-tools:$PATH"
 fi
 export PATH
 
@@ -29,7 +41,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -56,7 +68,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	PS1='\n\[\e[92;1m\][\u@\h:\[\e[94m\]\w\[\e[92m\]]\$ \[\e[0m\]'
+	# PS1='\n\[\e[92;1m\][\u@\h:\[\e[94m\]\w\[\e[92m\]]\$ \[\e[0m\]'
+	PS1="\n\t \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 else
     	PS1='\u@\h \w> '
 fi
@@ -65,7 +78,8 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*|alacritty*)
-	PS1='\n\[\e[92;1m\][\u@\h:\[\e[94m\]\w\[\e[92m\]]\$ \[\e[0m\]'
+	# PS1='\[\e[92;1m\]\u@\h:\[\e[94m\]\w\[\e[92m\]> \[\e[0m\]'
+	PS1="\n\t \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
     ;;
 *)
     ;;
@@ -74,38 +88,6 @@ esac
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
-fi
-
-# # Set up ssh-agent
-# SSH_ENV="$HOME/.ssh/environment"
-# 
-# function start_agent {
-#     echo "Initializing new SSH agent..."
-#     /usr/bin/ssh-agent -s | sed 's/^echo/#echo/' > "${SSH_ENV}"
-#     echo succeeded
-#     chmod 600 "${SSH_ENV}"
-#     . "${SSH_ENV}" > /dev/null
-#     /usr/bin/ssh-add;
-# }
-# # 
-# # Source SSH settings, if applicable
-# if [ -f "${SSH_ENV}" ]; then
-#     . "${SSH_ENV}" > /dev/null
-#     #ps ${SSH_AGENT_PID} doesn't work under cywgin
-#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-#         start_agent;
-#     }
-# else
-#     start_agent;
-# fi
-
-export EDITOR=/usr/bin/vim
+# export EDITOR=/usr/bin/vim
 
 unset rc
